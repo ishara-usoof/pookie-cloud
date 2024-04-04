@@ -4,6 +4,8 @@ const { databaseConnection } = require('./database');
 const { CreateChannel } = require('./utils')
 const expressApp = require('./express-app');
 
+
+console.log("Shopping Service")
 const StartServer = async() => {
 
     const app = express();

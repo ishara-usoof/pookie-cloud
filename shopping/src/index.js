@@ -5,7 +5,7 @@ const { CreateChannel } = require('./utils')
 const expressApp = require('./express-app');
 
 
-console.log("Shopping Service")
+console.log("Shopping Service page")
 const StartServer = async() => {
 
     const app = express();

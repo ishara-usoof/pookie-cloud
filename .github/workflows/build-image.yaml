@@ -22,6 +22,6 @@ jobs:
 
       - name: Build and push Docker images
         run: |
-          docker-compose build
-          docker-compose push
+          docker-compose build | grep 'Successfully built'
+          docker-compose push | grep 'latest'
           

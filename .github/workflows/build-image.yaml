@@ -23,5 +23,10 @@ jobs:
       - name: Build and push Docker images
         run: |
           docker-compose build | grep 'Successfully built'
-          docker-compose push | grep 'latest'
+          docker images 
+          docker push ghcr.io/ishara-usoof/customer:latest
+          docker push  ghcr.io/ishara-usoof/products:latest 
+          docker push  ghcr.io/ishara-usoof/shopping:latest 
+          docker push  ghcr.io/ishara-usoof/nginx-proxy:latest                                                    
+          
           

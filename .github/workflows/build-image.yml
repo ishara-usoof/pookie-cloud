@@ -23,17 +23,6 @@ jobs:
       - name: Build and push Docker images
         run: |
           docker-compose build
-          docker tag customer:latest ghcr.io/ishara-usoof/customer:latest
-          docker tag products:latest ghcr.io/ishara-usoof/products:latest
-          docker tag shopping:latest ghcr.io/ishara-usoof/shopping:latest
-          docker tag nginx-proxy:latest ghcr.io/ishara-usoof/nginx-proxy:latest
-          docker tag mvertes/alpine-mongo:latest ghcr.io/ishara-usoof/mvertes/alpine-mongo:latest
-          docker tag rabbitmq:alpine ghcr.io/ishara-usoof/rabbitmq:alpine
-          docker  push ghcr.io/ishara-usoof/customer:latest
-          docker  push ghcr.io/ishara-usoof/products:latest
-          docker  push ghcr.io/ishara-usoof/shopping:latest
-          docker  push ghcr.io/ishara-usoof/nginx-proxy:latest
-          docker  push ghcr.io/ishara-usoof/mvertes/alpine-mongo:latest
-          docker  push ghcr.io/ishara-usoof/rabbitmq:alpine
+          docker-compose push
           
           

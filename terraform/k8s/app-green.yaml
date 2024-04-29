@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: nginx-green
-        image: ghcr.io/ishara-usoof/nginx-proxy:latest
+        image: path/ishara-usoof/nginx-proxy:latest
         ports:
         - containerPort: 80
 ---

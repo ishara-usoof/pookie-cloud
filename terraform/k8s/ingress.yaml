@@ -11,7 +11,7 @@ metadata:
     kubernetes.io/ingress.class: alb
 spec:
   rules:
-  - host: app-lb-1120431137.eu-north-1.elb.amazonaws.com
+  - host: #put the loadbalance dns here
     http:
       paths:
       - path: /customer

@@ -21,8 +21,7 @@ spec:
     spec:
       containers:
       - name: db-service-blue
-        image: ghcr.io/ishara-usoof/mvertes/alpine-mongo:latest
+        image: path/ishara-usoof/mvertes/alpine-mongo:latest
         ports:
         - containerPort: 27017
-      imagePullSecrets:
-      - name: ghcr-secret
+

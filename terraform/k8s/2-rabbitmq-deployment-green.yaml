@@ -21,8 +21,7 @@ spec:
     spec:
       containers:
       - name: mq-service-green
-        image: ghcr.io/ishara-usoof/rabbitmq:alpine
+        image: path/ishara-usoof/rabbitmq:alpine
         ports:
         - containerPort: 5672
-      imagePullSecrets:
-      - name: ghcr-secret
+   

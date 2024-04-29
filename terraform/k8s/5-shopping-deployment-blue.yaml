@@ -21,8 +21,6 @@ spec:
     spec:
       containers:
       - name: shopping-service
-        image: ghcr.io/ishara-usoof/shopping:latest
+        image: path/ishara-usoof/shopping:latest
         ports:
         - containerPort: 8003
-      imagePullSecrets:
-      - name: ghcr-secret

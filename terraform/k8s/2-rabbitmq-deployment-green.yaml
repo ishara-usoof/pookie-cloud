@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mq-service-green
+  labels:
+    app: mq-service-green
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: mq-service-green
+  template:
+    metadata:
+      labels:
+        app: mq-service-green
+    spec:
+      containers:
+      - name: mq-service-green
+        image: ghcr.io/ishara-usoof/rabbitmq:alpine
+        ports:
+        - containerPort: 5672
+      imagePullSecrets:
+      - name: ghcr-secret

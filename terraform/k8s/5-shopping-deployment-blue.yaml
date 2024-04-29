@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shopping-service-blue
+  labels:
+    app: shopping-service-blue
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: shopping-service-blue
+  template:
+    metadata:
+      labels:
+        app: shopping-service-blue
+    spec:
+      containers:
+      - name: shopping-service
+        image: ghcr.io/ishara-usoof/shopping:latest
+        ports:
+        - containerPort: 8003
+      imagePullSecrets:
+      - name: ghcr-secret

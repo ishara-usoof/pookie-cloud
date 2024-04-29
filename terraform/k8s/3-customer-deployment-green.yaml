@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: customer-service-green
+  labels:
+    app: customer-service-green
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: customer-service-green
+  template:
+    metadata:
+      labels:
+        app: customer-service-green
+    spec:
+      containers:
+      - name: customer-service-green
+        image: ghcr.io/ishara-usoof/customer:latest
+        ports:
+        - containerPort: 8001
+      imagePullSecrets:
+      - name: ghcr-secret

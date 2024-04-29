@@ -1,0 +1,37 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    alb.ingress.kubernetes.io/healthcheck-path: /
+    alb.ingress.kubernetes.io/healthcheck-port: "3000"
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    kubernetes.io/ingress.class: alb
+spec:
+  rules:
+  - host: #put the loadbalance dns here
+    http:
+      paths:
+      - path: /customer
+        pathType: Prefix
+        backend:
+          service:
+            name: customer-service
+            port:
+              number: 8001
+      - path: /products
+        pathType: Prefix
+        backend:
+          service:
+            name: products-service
+            port:
+              number: 8002
+      - path: /shopping
+        pathType: Prefix
+        backend:
+          service:
+            name: shopping-service
+            port:
+              number: 8003

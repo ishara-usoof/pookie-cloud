@@ -1,0 +1,22 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: deployment-manager
+rules:
+- apiGroups: ["*"]
+  resources: ["deployments", "configmaps", "pods", "secrets", "services"]
+  verbs: ["get", "list", "watch", "describe", "create", "update", "delete", "patch", "apply"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: deployment-manager-binding
+subjects:
+- kind: Group
+  name: deployment-managers
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: deployment-manager
+  apiGroup: rbac.authorization.k8s.io
+
